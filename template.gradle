@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: "eclipse"
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+dependencies {
+    // import the dependency
+	compile "#{DEPENDENCY}"
+}
+
+eclipse {
+    classpath {
+        downloadSources=true 
+        downloadJavadoc=true
+    }
+}

@@ -1,0 +1,9 @@
+task cacheToLocalDir(type: Copy) {
+    from new File(gradle.gradleUserHomeDir, 'caches/modules-2/files-2.1')
+    into new File("/gradle/final")
+    eachFile {
+        List<String> parts = it.path.split('/')
+        it.path = parts[0].replace('.','/') + '/' + parts[1] + '/' + parts[2] + '/' + parts[4]
+    }
+    includeEmptyDirs false
+}
